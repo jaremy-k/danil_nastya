@@ -507,7 +507,6 @@ main {
 .hero__parallax {
   position: absolute;
   inset: -8%;
-  will-change: transform;
 }
 
 .hero__parallax:nth-of-type(1) {
@@ -664,16 +663,16 @@ main {
 
 @media (max-width: 899px) {
   .hero {
-    place-items: start;
-    padding-top: calc(var(--nav-height) + 6px);
+    place-items: center;
+    padding-top: calc(var(--nav-height) + 12px);
   }
 
   .hero__inner {
-    margin-top: clamp(2px, 1vh, 12px);
+    margin-top: 0;
   }
 
   .names {
-    margin-top: 0;
+    margin-top: clamp(8px, 2.5vh, 24px);
   }
 
   .hero.section--dark::after {

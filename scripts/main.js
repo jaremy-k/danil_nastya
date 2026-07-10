@@ -22,10 +22,8 @@ if (prefersReducedMotion) {
   revealItems.forEach((item) => revealObserver.observe(item));
   staggerItems.forEach((item) => revealObserver.observe(item));
 
-  const hero = document.querySelector(".hero");
   const story = document.querySelector(".story");
   const storyBg = document.querySelector(".story__bg");
-  const parallaxItems = document.querySelectorAll("[data-parallax]");
   const pollenRoot = document.getElementById("hero-pollen");
 
   let parallaxFrame = 0;
@@ -50,19 +48,6 @@ if (prefersReducedMotion) {
 
   function updateParallax() {
     parallaxFrame = 0;
-
-    if (hero) {
-      const rect = hero.getBoundingClientRect();
-      const scrollOffset = Math.max(0, -rect.top);
-
-      parallaxItems.forEach((item) => {
-        if (!hero.contains(item)) return;
-
-        const speed = Number.parseFloat(item.dataset.parallax);
-        const y = scrollOffset * (speed - 1) * 0.42;
-        item.style.transform = `translate3d(0, ${y}px, 0)`;
-      });
-    }
 
     if (story && storyBg) {
       const rect = story.getBoundingClientRect();
