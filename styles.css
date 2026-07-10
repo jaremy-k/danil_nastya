@@ -673,6 +673,21 @@ main {
       transparent 100%
     );
   }
+
+  .hero__frame {
+    width: clamp(355px, 93vw, 660px);
+  }
+
+  .hero__frame-lace {
+    width: 106%;
+    height: 106%;
+    left: -3%;
+    top: -3%;
+  }
+
+  .hero__frame-content {
+    padding: 23% 22%;
+  }
 }
 
 @media (min-width: 900px) {
