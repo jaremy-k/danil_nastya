@@ -220,8 +220,8 @@ main {
   }
 
   .topnav__links a {
-    font-size: 0.74rem;
-    letter-spacing: 0.06em;
+    font-size: 0.82rem;
+    letter-spacing: 0.07em;
   }
 
   .topnav__links li:nth-child(4) {
@@ -663,6 +663,19 @@ main {
 }
 
 @media (max-width: 899px) {
+  .hero {
+    place-items: start;
+    padding-top: calc(var(--nav-height) + 6px);
+  }
+
+  .hero__inner {
+    margin-top: clamp(2px, 1vh, 12px);
+  }
+
+  .names {
+    margin-top: 0;
+  }
+
   .hero.section--dark::after {
     height: 46%;
     z-index: 1;
