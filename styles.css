@@ -699,7 +699,19 @@ main {
   }
 
   .hero__frame-content {
-    padding: 23% 22%;
+    padding: 25% 23%;
+  }
+
+  .sprig {
+    width: clamp(58px, 16%, 92px);
+  }
+
+  .sprig--top {
+    margin-top: clamp(10px, 3vw, 18px);
+  }
+
+  .sprig--bottom {
+    margin-bottom: clamp(10px, 3vw, 18px);
   }
 }
 
@@ -797,15 +809,23 @@ main {
   align-items: center;
   justify-content: center;
   gap: clamp(4px, 1vw, 10px);
-  padding: 19% 19%;
+  padding: 21% 20%;
   text-align: center;
   color: var(--color-cream);
 }
 
 .sprig {
   display: inline-flex;
-  width: clamp(80px, 24%, 128px);
+  width: clamp(68px, 20%, 108px);
   opacity: 0.95;
+}
+
+.sprig--top {
+  margin-top: clamp(6px, 1.8vw, 14px);
+}
+
+.sprig--bottom {
+  margin-bottom: clamp(6px, 1.8vw, 14px);
 }
 
 .sprig img {
