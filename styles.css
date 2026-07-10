@@ -652,10 +652,12 @@ main {
   .hero {
     place-items: center;
     padding-top: calc(var(--nav-height) + 12px);
+    padding-bottom: clamp(88px, 17vh, 116px);
   }
 
   .hero__inner {
-    margin-top: clamp(40px, 11vh, 96px);
+    margin-top: 0;
+    transform: translateY(clamp(-20px, -5vh, -36px));
   }
 
   .names {
