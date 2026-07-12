@@ -1396,61 +1396,66 @@ main {
 
 .dress-code.section--light {
   padding-block: clamp(44px, 6vw, 84px);
-  background: var(--color-forest);
-}
-
-.dress-code.section--light::before {
-  display: block;
-  inset: 0;
-  height: 100%;
   background: url("assets/dresscode-silk.png") center / cover no-repeat;
-  opacity: 0.72;
 }
 
+@media (max-width: 859px) {
+  .dress-code.section--light {
+    background: url("assets/dresscode-mobile.png") center / cover no-repeat;
+    padding-top: clamp(124px, 26vw, 172px);
+    padding-bottom: clamp(44px, 6vw, 84px);
+  }
+}
+
+.dress-code.section--light::before,
 .dress-code.section--light::after {
-  display: block;
-  inset: 0;
-  height: 100%;
-  background:
-    linear-gradient(to bottom, rgba(244, 237, 221, 0.5), transparent),
-    linear-gradient(to top, rgba(244, 237, 221, 0.5), transparent),
-    linear-gradient(rgba(244, 237, 221, 0.14), rgba(244, 237, 221, 0.2));
-  background-size:
-    100% clamp(80px, 12vw, 150px),
-    100% clamp(80px, 12vw, 150px),
-    100% 100%;
-  background-position: top center, bottom center, center;
-  background-repeat: no-repeat;
+  display: none;
 }
 
 .dress-code__divider img {
-  filter: brightness(0) opacity(0.6);
+  width: 100%;
+  height: auto;
+  opacity: 0.95;
+}
+
+.dress-code__divider {
+  width: min(100%, 360px);
+  margin: 2px auto clamp(10px, 2vw, 16px);
 }
 
 .dress-code__grid {
-  display: grid;
-  gap: 32px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: clamp(28px, 4vw, 40px);
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
 }
 
 .dress-code__aside {
+  width: min(100%, 36rem);
   text-align: center;
 }
 
 .dress-code .script-heading {
   justify-items: center;
-  margin-bottom: 4px;
+  text-align: center;
+  margin-bottom: clamp(14px, 2.8vw, 22px);
+  font-size: clamp(1.45rem, 4.8vw, 2.85rem);
 }
 
-.dress-code__divider {
-  width: min(100%, 280px);
+@media (max-width: 859px) {
+  .dress-code .script-heading {
+    font-size: clamp(1.72rem, 7vw, 2.75rem);
+  }
 }
 
 .dress-code__lead {
   max-width: 34rem;
-  margin: 0 auto 16px;
-  font-family: var(--sans);
-  font-size: clamp(0.98rem, 2vw, 1.12rem);
+  margin: clamp(8px, 1.6vw, 14px) auto 8px;
+  font-family: var(--serif);
+  font-size: clamp(1.04rem, 2.4vw, 1.2rem);
   font-weight: 400;
   line-height: 1.7;
   letter-spacing: 0.01em;
@@ -1459,54 +1464,28 @@ main {
 
 .swatches {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px 18px;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-@media (min-width: 860px) {
-  .dress-code__grid {
-    grid-template-columns: 0.82fr 1.18fr;
-    gap: 48px;
-  }
-
-  .dress-code__aside {
-    text-align: left;
-  }
-
-  .dress-code .script-heading {
-    justify-items: start;
-  }
-
-  .dress-code__divider {
-    margin-inline: 0;
-  }
-
-  .dress-code__lead {
-    margin-inline: 0;
-    text-align: left;
-  }
-
-  .swatches {
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    gap: 16px;
-  }
-}
-
 .swatches__item {
   display: grid;
-  justify-items: center;
+  grid-template-columns: auto 1fr;
+  gap: 14px 18px;
+  align-items: center;
+  justify-items: start;
+  width: min(100%, 24rem);
   transition:
     transform 420ms cubic-bezier(0.22, 0.61, 0.36, 1),
     filter 420ms ease;
 }
 
 .swatches__item:hover {
-  transform: scale(1.06);
+  transform: scale(1.03);
 }
 
 .swatches__item:hover .swatches__circle img {
@@ -1515,11 +1494,11 @@ main {
 
 .swatches__circle {
   overflow: hidden;
-  width: clamp(72px, 14vw, 112px);
+  width: clamp(108px, 28vw, 144px);
   aspect-ratio: 1;
   border-radius: 50%;
   box-shadow:
-    0 12px 28px rgba(21, 29, 24, 0.2),
+    0 5px 10px rgba(21, 29, 24, 0.1),
     inset 0 0 0 1px rgba(21, 29, 24, 0.08);
 }
 
@@ -1530,25 +1509,150 @@ main {
   transition: filter 420ms ease;
 }
 
+.swatches__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+}
+
 .swatches__label {
-  font-size: 0.76rem;
-  font-weight: 500;
-  line-height: 1.35;
+  font-family: var(--serif);
+  font-size: clamp(0.96rem, 2.8vw, 1.08rem);
+  font-weight: 400;
+  line-height: 1.25;
   color: var(--color-forest);
-  opacity: 0.86;
+  opacity: 0.9;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.swatches__label br {
+  display: none;
+}
+
+.swatches__leaf {
+  display: block;
+  width: 58px;
+  height: auto;
+  opacity: 0.9;
+}
+
+@media (min-width: 860px) {
+  .dress-code__grid {
+    width: 58%;
+    max-width: 58%;
+    margin-left: 36%;
+    margin-right: 0;
+    padding-inline: clamp(8px, 1.5vw, 16px);
+    box-sizing: border-box;
+    transform: none;
+    gap: clamp(32px, 4.5vw, 48px);
+  }
+
+  .dress-code .script-heading {
+    font-size: clamp(2.1rem, 3.8vw, 3.1rem);
+  }
+
+  .dress-code__divider {
+    width: min(100%, 420px);
+  }
+
+  .dress-code__lead {
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+  }
+
+  .swatches {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .swatches__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: auto;
+    gap: 12px;
+  }
+
+  .swatches__item:hover {
+    transform: scale(1.06);
+  }
+
+  .swatches__circle {
+    width: clamp(100px, 10.5vw, 132px);
+  }
+
+  .swatches__meta {
+    align-items: center;
+    gap: 8px;
+  }
+
+  .swatches__label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(0.92rem, 2.3vw, 1.04rem);
+    min-height: 2.5em;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .swatches__label br {
+    display: block;
+  }
+
+  .swatches__leaf {
+    width: 54px;
+  }
+
+  .dress-code__note {
+    display: none;
+  }
+}
+
+.dress-code__line {
+  display: block;
+  width: min(100%, 400px);
+  height: auto;
+  margin: clamp(24px, 5vw, 36px) auto 0;
+  opacity: 0.92;
+}
+
+@media (min-width: 860px) {
+  .dress-code__line {
+    display: none;
+  }
 }
 
 .dress-code__note {
-  margin: 8px 0 0;
-  font-family: var(--script);
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: -8px 0 0;
+  max-width: 34rem;
+  font-family: var(--serif);
+  font-size: clamp(1.04rem, 2.4vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
   text-align: center;
   color: var(--color-forest);
 }
 
+.dress-code__leaf-bottom {
+  display: block;
+  width: min(111px, 32vw);
+  height: auto;
+  margin: 2px auto 0;
+  opacity: 0.92;
+}
+
 @media (min-width: 860px) {
-  .dress-code__note {
-    text-align: left;
+  .dress-code__leaf-bottom {
+    display: none;
   }
 }
 
