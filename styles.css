@@ -1842,18 +1842,18 @@ main {
 
 .finale__content::before {
   position: absolute;
-  top: -24px;
-  right: 12%;
-  bottom: -20px;
-  left: 12%;
+  top: -12px;
+  right: 18%;
+  bottom: -10px;
+  left: 18%;
   z-index: -1;
   content: "";
-  background: radial-gradient(ellipse at center, rgba(10, 14, 9, 0.42), transparent 72%);
+  background: radial-gradient(ellipse at center, rgba(10, 14, 9, 0.12), transparent 68%);
   pointer-events: none;
 }
 
 .finale__names {
-  margin: 0;
+  margin: clamp(-6px, -1.2vw, -3px) 0 0;
   font-family: var(--script);
   font-size: clamp(2.4rem, 7vw, 4rem);
   line-height: 0.95;
@@ -1892,7 +1892,7 @@ main {
 }
 
 .finale__sign {
-  margin: 2px 0 0;
+  margin: 0;
   font-family: var(--script);
   font-size: clamp(1.5rem, 3.6vw, 2.1rem);
   color: var(--color-beige);
